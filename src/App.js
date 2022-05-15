@@ -85,7 +85,7 @@ function App() {
         <form className="d-flex mb-2 w-100"
         onSubmit={handleSubmit}>          
         <input 
-        className="w-100 py-2 px-3 mr-2" 
+        className="w-100 py-2 px-3 me-2" 
         value={todos.task}
         onChange={(e) => {
           settodos({...todos, task: e.target.value})
@@ -104,8 +104,8 @@ function App() {
           {TODO.map(todo => {
             return (
               <ul className='carding list d-flex flex-row mb-3 pl-0 align-items-center justify-content-between' key={todo.id}>
-                <input type="checkbox" onClick={() => handleCheckbox(todo)} className='ml-2 mr-3'/>
-                <li className={todo.completed ? 'text-decoration-line-through mr-auto' : 'mr-auto'}>{todo.task}</li>
+                <input type="checkbox" onClick={() => handleCheckbox(todo)} className='me-2 ms-3'/>
+                <li className={todo.completed ? 'text-decoration-line-through me-auto' : 'me-auto'}>{todo.task}</li>
                 <button type='submit' onClick={() => handleRemove(todo)} className='del py-0'><FA icon="fa-trash-can" beatFade="true" /></button>
               </ul>
             )
@@ -124,14 +124,14 @@ function App() {
               .map(todo => {
               return (
               <ul className='carding list d-flex flex-row mb-3 pl-0 align-items-center justify-content-between' key={todo.id}>
-                <input type="checkbox" onClick={() => handleCheckbox(todo)} className='ml-2 mr-3'/>
-                <li className={todo.completed ? 'text-decoration-line-through mr-auto' : 'mr-auto'}>{todo.task}</li>
+                <input type="checkbox" onClick={() => handleCheckbox(todo)} className='me-2 ms-3'/>
+                <li className={todo.completed ? 'text-decoration-line-through me-auto' : 'me-auto'}>{todo.task}</li>
                 <button type='submit' onClick={() => handleRemove(todo)} className='del py-0'><FA icon="fa-trash-can" beatFade="true" /></button>
               </ul>
             )})
             }
           <div className='d-flex flex-row align-items-center mt-2'>
-            <button className='genDel ml-auto px-3 py-2'
+            <button className='genDel ms-auto px-3 py-2'
             onClick={handleRemoveAll}>Delete All</button>
           </div>
           </div>
