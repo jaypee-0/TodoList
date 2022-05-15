@@ -74,7 +74,7 @@ function App() {
       <header className="fs-2 fw-bold mt-5 mb-4 text-center m-auto mr-5">
        Todo
       </header>
-      <div className='w-75 m-auto'>
+      <div className='col-11 col-md-7 m-auto'>
         <ul className='select pl-0 d-flex flex-row justify-content-between col-10 m-auto mb-0'>
           <li onClick={handleAll}>All</li>
           <li onClick={handleActive}>Active</li>
