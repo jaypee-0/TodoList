@@ -48,4 +48,15 @@
     input[type="checkbox"] {
         background-color: rgb(60, 24, 168);
     }
+    .carding {        
+        box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.09);
+        padding: 0.8rem 0;
+    }
+    .genDel {
+        background-color: rgb(168, 24, 24);
+        outline: unset;
+        border-radius: 3px;
+        color: white;
+        border: 1px solid black;
+    }
 }

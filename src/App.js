@@ -11,7 +11,7 @@ function App() {
   })
   const [TODO, setTODO] = useState([])
   const [active, setactive] = useState()
-  const [completed, setcompleted] = useState("")
+  const [completedbar, setcompletedbar] = useState(false)
   const [showinput, setshowinput] = useState(true)
 
   const addTodos =(todos) => {
@@ -24,17 +24,18 @@ function App() {
       settodos({ ...todos, task: ""});
     }
   }
-  const handleComplete = ({id}) => {
+  const handleComplete = () => {
     setshowinput(false)
-    setTODO(setactive)
-    
+    setcompletedbar(true)    
   }
   const handleAll = () => {
     setshowinput(true)
-    setTODO(setactive)
+    //setTODO(setactive)
+    setcompletedbar(false)
   }
   const handleActive = () => {
     setshowinput(true)
+    setcompletedbar(false)
 
   }  
   const handleCheckbox = (todo) => {
@@ -95,13 +96,18 @@ function App() {
         <div className='d-flex flex-column'>       
           {TODO.map(todo => {
             return (
-              <ul className='list d-flex flex-row mb-3 pl-0 align-items-center justify-content-between' key={todo.id}>
-                <input type="checkbox" onClick={() => handleCheckbox(todo)} className='mr-3'/>
+              <ul className='carding list d-flex flex-row mb-3 pl-0 align-items-center justify-content-between' key={todo.id}>
+                <input type="checkbox" onClick={() => handleCheckbox(todo)} className='ml-2 mr-3'/>
                 <li className={todo.completed ? 'text-decoration-line-through mr-auto' : 'mr-auto'}>{todo.task}</li>
                 <button type='submit' onClick={() => handleRemove(todo)} className='del py-0'><FA icon="fa-trash-can" beatFade="true" /></button>
               </ul>
             )
-          })}
+          })
+          }
+          {completedbar && 
+          <div className='d-flex flex-row mt-2 ml-auto'>
+            <button className='genDel px-3 py-2'>Delete</button>
+          </div>}          
           </div>
       </div>
     </div>
