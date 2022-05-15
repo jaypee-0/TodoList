@@ -10,6 +10,7 @@ function App() {
     completed: false
   })
   const [TODO, setTODO] = useState([])
+  const [showall, setshowall] = useState(true)
   const [active, setactive] = useState()
   const [completedbar, setcompletedbar] = useState(false)
   const [showinput, setshowinput] = useState(true)
@@ -26,17 +27,17 @@ function App() {
   }
   const handleComplete = () => {
     setshowinput(false)
-    setcompletedbar(true)    
+    setcompletedbar(true) 
+    setshowall(false)   
   }
   const handleAll = () => {
     setshowinput(true)
-    //setTODO(setactive)
     setcompletedbar(false)
+    setshowall(true)
   }
   const handleActive = () => {
     setshowinput(true)
     setcompletedbar(false)
-
   }  
   const handleCheckbox = (todo) => {
     setTODO(
@@ -53,7 +54,6 @@ function App() {
   }
 
   const LOCAL_KEY = "todo-list";
-  //todos on initial render  
   useEffect(() => {
     const storetodo = JSON.parse(localStorage.getItem(LOCAL_KEY));
     if (storetodo) {
@@ -93,7 +93,10 @@ function App() {
       </form>
         }  
         {/* Todolists */} 
-        <div className='d-flex flex-column'>       
+        
+        <div className='d-flex flex-column'>  
+        {showall &&
+        <div className='d-flex flex-column'> 
           {TODO.map(todo => {
             return (
               <ul className='carding list d-flex flex-row mb-3 pl-0 align-items-center justify-content-between' key={todo.id}>
@@ -104,10 +107,14 @@ function App() {
             )
           })
           }
+        </div>
+        }     
+          
           {completedbar && 
-          <div className='d-flex flex-row mt-2 ml-auto'>
-            <button className='genDel px-3 py-2'>Delete</button>
-          </div>}          
+          <div className='d-flex flex-row align-items-center mt-2'>
+            <button className='genDel ml-auto px-3 py-2'>Delete</button>
+          </div>}  
+
           </div>
       </div>
     </div>
