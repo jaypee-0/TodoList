@@ -6,15 +6,15 @@
 
 <div align="center">
   <h3>
-    <a href="">
+    <a href="https://todolist-jaypee.netlify.app/">
       Demo
     </a>
     <span> | </span>
-    <a href="">
+    <a href="https://devchallenges.io/solutions/nE8pV26kobfz8TJxZ0Yg">
       Solution
     </a>
     <span> | </span>
-    <a href="">
+    <a href="https://devchallenges.io/">
       Challenge
     </a>
   </h3>
