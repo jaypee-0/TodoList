@@ -11,7 +11,7 @@ function App() {
   })
   const [TODO, setTODO] = useState([])
   const [showall, setshowall] = useState(true)
-  const [active, setactive] = useState()
+  const [active, setactive] = useState(true)
   const [completedbar, setcompletedbar] = useState(false)
   const [showinput, setshowinput] = useState(true)
 
@@ -28,7 +28,7 @@ function App() {
   const handleComplete = () => {
     setshowinput(false)
     setcompletedbar(true) 
-    setshowall(false)   
+    setshowall(false)    
   }
   const handleAll = () => {
     setshowinput(true)
@@ -38,6 +38,7 @@ function App() {
   const handleActive = () => {
     setshowinput(true)
     setcompletedbar(false)
+    setactive(active)
   }  
   const handleCheckbox = (todo) => {
     setTODO(
@@ -51,6 +52,9 @@ function App() {
   }
   const handleRemove = ({ id }) => {
     setTODO(TODO.filter((todo) => todo.id !== id));
+  }
+  const handleRemoveAll = ({id}) => {
+    setTODO(TODO.filter((todo) => todo.id === id));
   }
 
   const LOCAL_KEY = "todo-list";
@@ -108,13 +112,31 @@ function App() {
           })
           }
         </div>
-        }     
-          
+        }    
+          {/* Complete Tab */}
           {completedbar && 
+          <div>
+            {TODO.filter(todo => {
+              if (todo.completed !== todos.completed) {
+                return todos
+              } return (todo.completed && todos.completed)                
+              })
+              .map(todo => {
+              return (
+              <ul className='carding list d-flex flex-row mb-3 pl-0 align-items-center justify-content-between' key={todo.id}>
+                <input type="checkbox" onClick={() => handleCheckbox(todo)} className='ml-2 mr-3'/>
+                <li className={todo.completed ? 'text-decoration-line-through mr-auto' : 'mr-auto'}>{todo.task}</li>
+                <button type='submit' onClick={() => handleRemove(todo)} className='del py-0'><FA icon="fa-trash-can" beatFade="true" /></button>
+              </ul>
+            )})
+            }
           <div className='d-flex flex-row align-items-center mt-2'>
-            <button className='genDel ml-auto px-3 py-2'>Delete</button>
-          </div>}  
-
+            <button className='genDel ml-auto px-3 py-2'
+            onClick={handleRemoveAll}>Delete All</button>
+          </div>
+          </div>
+          }  
+            
           </div>
       </div>
     </div>
