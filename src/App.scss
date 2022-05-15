@@ -1,0 +1,51 @@
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+
+#App {
+    ul.select {        
+        li {
+            list-style-type: none;
+            border-bottom: 2px solid white;
+            &:hover{
+                cursor: pointer;
+                background-color: whitesmoke;
+                border-bottom: 2px solid rgb(60, 24, 168);
+            }
+            &:focus,&:focus-visible,&:active{
+                border-bottom: 3px solid rgb(60, 24, 168);
+            }
+        }
+    }
+    input {
+        border-radius: 5px;
+        border: 1px solid #333;
+        &:hover, &:active, &:focus{
+            border: 1px solid rgb(60, 24, 168);
+            outline: rgb(60, 24, 168);
+        }
+    }
+    button.add {
+        background-color: rgb(60, 24, 168);
+        color: white;
+        border-radius: 5px;
+        border: unset;
+    }
+    ul.list {
+        li {
+            list-style-type: none;
+        }
+    }
+    button.del {
+        background-color: unset;
+        color:  rgb(60, 24, 168);
+        border: unset;
+        &:hover {
+            color:  rgb(168, 24, 24);
+        }
+        &:focus, &:focus-visible {            
+            outline: unset;
+        }
+    }
+    input[type="checkbox"] {
+        background-color: rgb(60, 24, 168);
+    }
+}

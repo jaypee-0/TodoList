@@ -1,0 +1,11 @@
+{
+    "prettier.jsxSingleQuote": true,
+    "prettier.jsxBracketSameLine": true,
+    "editor.fontSize": 13,
+    "editor.fontLigatures": false,
+    "editor.fontFamily": "Cousine,  Inconsolata, monospace",
+    "workbench.colorTheme": "Default High Contrast",
+    "workbench.editor.decorations.colors": true,
+    "workbench.preferredDarkColorTheme": "Monokai",
+    "workbench.preferredHighContrastLightColorTheme": "Kimbie Dark"
+}
