@@ -57,7 +57,7 @@ function App() {
     setTODO(TODO.filter((todo) => todo.id !== id));
   };
   const handleRemoveAll = ({ id }) => {
-    setTODO(TODO.filter((todo) => todo.id === id));
+    setTODO(TODO.filter((todo) => todo.completed === todos.completed));
   };
 
   const LOCAL_KEY = 'todo-list';
